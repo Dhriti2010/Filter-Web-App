@@ -1,3 +1,5 @@
+nosex=0;
+nosey=0;
 function preload(){
 clownnose=loadImage("https://i.postimg.cc/3x3QzSGq/m.png");
 }
@@ -9,10 +11,6 @@ function setup(){
     video.hide();
     posenet=ml5.poseNet(video,modelloaded);
     posenet.on('pose',gotposes);
-}
-function draw(){
-image(video,0,0,300,300);
-image(clownnose,nosex,nosey,80,35);
 }
 function take_snapshot(){
     save("myfilterimage.jpg");
@@ -27,3 +25,7 @@ function gotposes(results){
         nosey=results[0].pose.nose.y;
     }
 }
+function draw(){
+    image(video,0,0,300,300);
+    image(clownnose,nosex,nosey,80,35);
+    }
